@@ -55,17 +55,20 @@
       <p>Required Item (*)</p>
       
       <form action="http://www.example.com/cg/register" method="post">
+         <!-- where to send the results -->
          <label for="titleBox">Title</label>
-         <input id="titleBox" name="title" type="text"/>
+         <input id="titleBox" name="title" type="text" list="titleList"/>
 
          <label for="fnBox">First Name*</label>
          <input id="fnBox" name="firstName" type="text" required/>
+         <!-- cannot be submitted until all required fields are filled -->
 
          <label for="lnBox">Last Name*</label>
          <input id="lnBox" name="lastName" type="text" required/>
 
          <label for="addBox">Address*</label>
-         <input id="addBox" name="address" type="text" required/>
+         <textarea id="addBox" name="address" type="text" required></textarea>
+         <!-- will be a bigger text box for address -->
 
          <label for="groupBox">Company or University</label>
          <input id="groupBox" name="group" type="text"/>
@@ -74,11 +77,37 @@
          <input id="mailBox" name="email" type="email" required/>
 
          <label for="phoneBox">Phone Number*</label>
-         <input id="phoneBox" name="phoneNumber" type="tel" required/>
+         <input id="phoneBox" name="phoneNumber" type="tel" required pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"/>
+         <!-- entry must match the pattern -->
 
          <label for="idBox">ACGIP Membership Number</label>
-         <input id="idBox" name="acgipID" type="text"/>
+         <input id="idBox" name="acgipID" type="text" pattern="^acgip\-\d{6}$"/>
 
+         <datalist id="titleList">
+            <option value="Mr."/>
+            <option value="Mrs."/>
+            <option value="Ms."/>
+            <option value="Prof."/>
+            <option value="Dr."/>
+            <option value="Assist. Prof."/>
+            <option value="Assoc. Prof."/>
+         </datalist>
+         <!-- available options for the title option -->
+
+         <label for="regList">Registration Category</label>
+         <input id="regList" name="registerType" list="registerList"/>
+         <datalist id="registerList">
+            <option value="ACGIP Member ($695)"/>
+            <option value="Non-Member ($795)"/>
+            <option value="Student ($310)"/>
+            <option value="Poster ($95)"/>
+            <option value="Guest ($35)"/>
+            <!-- avaiable options for registration -->
+         </datalist>
+
+         <p>
+            <input value="Submit" type="submit"/>
+         </p>
       </form>
    </section>
    

@@ -13,4 +13,27 @@
 
 
 /* Validation Styles */
+input:focus, selct:focus, textarea:focus{
+   background-color: rgb(245, 245, 140);
+}
+/* changes background when you click it */
 
+input#fnBox:focus:valid, input#lnBox:focus:valid, 
+input#addBox:focus:valid, input#mailBox:focus:valid, 
+input#phoneBox:focus:valid, input#idBox:focus:valid{
+   background-color: rgb(220, 255, 220);
+   background-image: url(cg_valid.png);
+   background-repeat: no-repeat;
+   background-position: right bottom;
+}
+/* changes the color when it's valid */
+
+input#fnBox:focus:invalid, input#lnBox:focus:invalid, 
+input#addBox:focus:invalid, input#mailBox:focus:invalid, 
+input#phoneBox:focus:invalid, input#idBox:focus:invalid{
+   background-color: rgb(255, 232, 232);
+   background-image: url(cg_invalid.png);
+   background-repeat: no-repeat;
+   background-position: right bottom;
+}
+/* changes the color when it's invalid */
