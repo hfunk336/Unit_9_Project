@@ -46,6 +46,7 @@
    <section>
       <h1>Payment Form</h1>
       <form id="payment" action="http://www.example.com/sb/payment" method="post"/>
+      <!-- takes you to the website when you submit but it doesn't exist -->
          <fieldset id="billing">
             <legend>Billing Information (required)</legend>
 
@@ -75,7 +76,7 @@
 
             <label for="phoneBox">Phone</label>
             <input id="phoneBox" name="phone" type="text" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" required/>
-
+<!-- required ones must be filled in to submit -->
             <datalist id="stateList">
                <option value="AL"/>
                <option value="AK"/>
@@ -127,6 +128,7 @@
                <option value="WV"/>
                <option value="WI"/>
                <option value="WY"/>
+               <!-- lets the user choose from all the state abbreviations -->
             </datalist>
          </fieldset>
          <fieldset id="creditCard">
@@ -148,9 +150,47 @@
                   <input name="cCard" value="visa" type="radio" required/>
                   <img src="sb_visa.png"/>
                </label>
+               <!-- radio buttons that let the user choose which card they have -->
             </fieldset>
+            <label for="cardBox">Credit Card Number</label>
+            <input id="cardBox" name="cardNumber" type="text" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" required/>
+
+            <label for="monthList">Expiration Date</label>
+            <input id="monthList" name="cardMonth" type="text" list="months" required/>
+            <datalist id="months">
+               <option value="">--Month--</option>
+               <option value="1">January (01)</option>
+               <option value="2">February (02)</option>
+               <option value="3">March (03)</option>
+               <option value="4">April (04)</option>
+               <option value="5">May (05)</option>
+               <option value="6">June (06)</option>
+               <option value="7">July (07)</option>
+               <option value="8">August (08)</option>
+               <option value="9">September (09)</option>
+               <option value="10">October (10)</option>
+               <option value="11">November (11)</option>
+               <option value="12">December (12)</option>
+               <!-- choose expiration month -->
+            </datalist>
+            <input id="yearList" name="cardYear" type="text" list="years" required/>
+            <datalist id="years">
+               <option value="">--Year--</option>
+               <option value="2017">2017</option>
+               <option value="2018">2018</option>
+               <option value="2019">2019</option>
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+               <!-- choose expiration year -->
+            </datalist>
+
+            <label for="cscBox">CSC</label>
+            <input id="cscBox" for="csc" type="text" pattern="^/d{3}$" maxlength="3" placeholder="nnn"/>
          </fieldset>
-         <input id="cardBox" name="cardNumber" type="text" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" required/>
+         <button type="submit">
+            <img src="sb_button.png"/>
+         </button>
+        
       </form>
       <aside>
          <h1>Menu Ideas</h1>

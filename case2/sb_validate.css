@@ -13,4 +13,22 @@
 
 
 /* Validation Styles */
-
+input:not([type="radio"]){
+   /* all inputs except that are radio will have their color changed */
+   background-color: rgb(255, 245, 215);
+}
+input:not([type="radio"]):focus:valid{
+   /* all valid responses will be green with a check */
+   background-color: rgb(215, 255, 215);
+   background-image: url(sb_valid.png);
+   background-repeat: no-repeat;
+   background-position: right bottom;
+}
+input:not([type="radio"]):focus:invalid{
+   /* all invalid responses will be red with a x */
+   background-color: rgb(255, 245, 215);
+   background-image: url(sb_invalid.png);
+   background-repeat: no-repeat;
+   background-position: right bottom;
+}
+}
